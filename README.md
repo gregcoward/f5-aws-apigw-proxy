@@ -18,7 +18,7 @@ BIG-IP VE 13.1 or later running on EC2
 1. Download and import [.tgz](https://github.com/gregcoward/f5-aws-apigw-proxy/releases/download/1.0.0/f5_aws_apigw_proxy.tgz) file into the BIGIP, (see below). 
 ![Deployment Diagram1](images/impwrkspace.png) 
 <br>
-<img src="images/installedwrkspace.png" alt="Trulli" width="500" height="333">
+<img src="images/installedwrkspace.png">
 <br> 
 2. Create LX plugin from imported workspace   -  <b>Note:</b> must be named 'f5_aws_apigw_proxy'
 	
