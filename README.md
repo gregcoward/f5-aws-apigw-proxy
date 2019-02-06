@@ -9,7 +9,7 @@ The f5_aws_apigw_proxy iRules LX plug-in is a BIG-IP iRules LX plugin for enable
 For example:<br><br>POST/api.f5demo.net/<b>api1</b>  -- proxies to -- POST/jbfipbsqfa.execute-api.us-east-1.amazonaws.com/<b>prod/LambdaPub-WCGIBYB9AHI</b>
         <br><br>POST/api.f5demo.net/<b>ap2</B>  -- proxies to -- POST/jbfipbsqfa.execute-api.us-east-1.amazonaws.com/<b>prod/lambdafn-WTGH67</b>
 
-<b>**This extension is community supported.**</b>
+<b><font color="red">This extension is community supported.<font color="red"></b>
 
 ## Requirements
 
