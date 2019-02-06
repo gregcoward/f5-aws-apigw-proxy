@@ -10,3 +10,9 @@
 3. Create and populate the data-group  //Note: must be named 'aws-apis'
 	
 	TMSH command example: tmsh create ltm data-group internal aws-apis type string records add { api1 { data jbfipbsqfa.execute-api.us-east-1.amazonaws.com/default/serverlessrepo-glc-publisher-LambdaPublisher-WFCGIBYB9AHI }}
+
+	
+	
+<video width="320" height="240" controls><source src="images/.mp4" type="video/mp4"><source src="installapigw.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
