@@ -16,24 +16,22 @@ BIG-IP VE 13.1 or later running on EC2
 ## Installation
 
 1. Download and import [.tgz](https://github.com/gregcoward/f5-aws-apigw-proxy/releases/download/1.0.0/f5_aws_apigw_proxy.tgz) file into the BIGIP, (see below). 
-![Deployment Diagram1](images/impwrkspace.png) 
-<br>
-<img src="images/installedwrkspace.png">
-<br> 
-2. Create LX plugin from imported workspace   -  <b>Note:</b> must be named 'f5_aws_apigw_proxy'
-	
-	<br><b>TMSH command example:</b> <i>tmsh create ilx plugin f5_aws_apigw_proxy from-workspace f5_aws_apigw_proxy</i>
-	<br>![Deployment Diagram2](images/impwrkspace.png) 
-	
-	
+<img src="images/impwrkspace.png"><br>
+<img src="images/installedwrkspace.png"><br> 
 
+2. Create LX plugin from imported workspace   -  <b>Note:</b> must be named 'f5_aws_apigw_proxy'
+<br><b>TMSH command example:</b> <i>tmsh create ilx plugin f5_aws_apigw_proxy from-workspace f5_aws_apigw_proxy</i>
+<br>![Deployment Diagram2](images/impwrkspace.png) 
+<br><img src="images/newplugin.png"><br>
 
 3. Create and populate the data-group  //Note: must be named 'aws-apis'
-	
-	TMSH command example: tmsh create ltm data-group internal aws-apis type string records add { api1 { data jbfipbsqfa.execute-api.us-east-1.amazonaws.com/default/serverlessrepo-glc-publisher-LambdaPublisher-WFCGIBYB9AHI }}
-
+<b>TMSH command example:</b> <i>tmsh create ltm data-group internal aws-apis type string records add { api1 { data jbfipbsqfa.execute-api.us-east-1.amazonaws.com/default/serverlessrepo-glc-publisher-LambdaPublisher-WFCGIBYB9AHI }}</i>
+<br><img src="images/datagroup.png"><br>
 For a quick video run through of the installation process, check out this [video](https://www.youtube.com/watch?v=lY-LQtkKu0o).
-## Modification
+
+## Modification 
+Once the workspace has been installed, you can use the BIG-IP workspace, (see below) to view and modify the underlying iRule -tcl  and the nodejs processor
+<br><img src="images/workspace.png">
 
 </body>	
 </HTML>
