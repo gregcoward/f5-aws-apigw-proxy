@@ -4,8 +4,8 @@
 
 The f5_aws_apigw_proxy iRules LX plug-in is a BIG-IP iRules LX plugin for enables the BIG-IP to act as a many-to-one API proxy for AWS API Gateway requests.  The plug-in utilizes a data-group to perform 
 
-For example:<br>,br>POST/api.f5demo.net/api  -- proxies to -- POST/jbfipbsqfa.execute-api.us-east-1.amazonaws.com/default/serverlessrepo-glc-publisher-LambdaPublisher-WFCGIBYB9AHI
-                 <br><br>POST/api.f5demo.net/<b>ap2</B>  -- proxies to -- POST/jbfipbsqfa.execute-api.us-east-1.amazonaws.com/<b>default/serverlessrepo-glc-publisher-LambdaPublisher-WFCGIBYB9AHI</b>
+For example:<br><br>POST/api.f5demo.net/api  -- proxies to -- POST/jbfipbsqfa.execute-api.us-east-1.amazonaws.com/<b>prod/LambdaPublisher-WCGIBYB9AHI</b>
+        <br><br>POST/api.f5demo.net/<b>ap2</B>  -- proxies to -- POST/jbfipbsqfa.execute-api.us-east-1.amazonaws.com/<b>prod/lambdafn-WTGH67</b>
 
 This extension is community supported.
 
