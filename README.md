@@ -23,7 +23,6 @@ BIG-IP VE 13.1 or later running on EC2
 
 <b>2.</b> Create LX plugin from imported workspace   -  <b>Note:</b> must be named 'f5_aws_apigw_proxy'
 <br><b>TMSH command example:</b> <i>tmsh create ilx plugin f5_aws_apigw_proxy from-workspace f5_aws_apigw_proxy</i>
-<br>![Deployment Diagram2](images/impwrkspace.png) 
 <br><img src="images/newplugin.png"><br>
 
 <b>3.</b> Create and populate the data-group  //Note: must be named 'aws-apis'
