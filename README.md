@@ -30,9 +30,7 @@ BIG-IP VE 13.1 or later running on EC2
 <b>TMSH command example:</b> <i>tmsh create ltm data-group internal aws-apis type string records add { api1 { data jbfipbsqfa.execute-api.us-east-1.amazonaws.com/default/serverlessrepo-glc-publisher-LambdaPublisher-WFCGIBYB9AHI }}</i>
 
 <b>4.</b> Create an AWS IAM role with the name:  <b><i>f5ApiProxyRole</i><b>  The role requires, at a minimum the '<i>AmazonAPIGatewayInvokeFullAccess</i>' permission, (see below).  Attach the newly created role to BIG-IP ec2 instance. Refer to this [link](https://aws.amazon.com/blogs/security/easily-replace-or-attach-an-iam-role-to-an-existing-ec2-instance-by-using-the-ec2-console/) for instructions. 
-
-
-<br><img src="images/datagroup.png"><br>
+<br><img src="images/perms.png"><br>
 For a quick video run through of the installation process, check out this [video](https://www.youtube.com/watch?v=lY-LQtkKu0o).
 
 ## Modification 
