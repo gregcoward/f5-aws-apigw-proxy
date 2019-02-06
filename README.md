@@ -31,8 +31,9 @@ BIG-IP VE 13.1 or later running on EC2
 For a quick video run through of the installation process, check out this [video](https://www.youtube.com/watch?v=lY-LQtkKu0o).
 
 ## Modification 
+
 Once the workspace has been installed, you can use the BIG-IP workspace, (see below) to view and modify the underlying iRule -tcl  and the nodejs processor
-<br><img src="images/workspace.png">
+<br><br><img src="images/workspace.png">
 
 </body>	
 </HTML>
