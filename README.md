@@ -1,4 +1,4 @@
-# F5 AWS API Gateway Proxy iRules LX Plug-in
+# F5 AWS Lambda/API Gateway Proxy iRules LX Plug-in
 
 ## Introduction
 
@@ -6,14 +6,13 @@
 
 The f5_aws_apigw_proxy iRules LX plug-in is a BIG-IP iRules LX plugin for enables the BIG-IP to act as a many-to-one proxy for both AWS API Gateway and direct Lambda function requests.  The plug-in utilizes a data-group to perform path/URI and path/LambdaFunction matching.  This allows for a single public facing proxy endpoint to service multiple backend AWS Lambda functions and APIs.
 
-API example:<br><br>POST/apigw.f5demo.net/<b>api1</b>  -- proxies to -- POST/jbfipbsqfa.execute-api.us-east-1.amazonaws.com/<b>prod/LambdaPub-WCGIBYB9AHI</b>
+To proxy a Lambda function, use the same datagroup to creat path/LambdFunctionName matchings -   <i>fxn1 ---> glc-hello-function</i><br>        
+<b><i>Lambda Proxy Example:</b></i><br>POST/apigw.f5demo.net/<b>fxn1</b>  -- proxies directly to the Lambda function with the name <b>glc-hello-function</b>
+
+
+<b><i>API example:</b></i><br>POST/apigw.f5demo.net/<b>api1</b>  -- proxies to -- POST/jbfipbsqfa.execute-api.us-east-1.amazonaws.com/<b>prod/LambdaPub-WCGIBYB9AHI</b>
         <br><br>POST/apigw.f5demo.net/<b>ap2</B>  -- proxies to -- POST/jbfipbsqfa.execute-api.us-east-1.amazonaws.com/<b>prod/lambdafn-WTGH67</b>
         
-To proxy a Lambda function, use the same datagroup to creat path/LambdFunctionName matchings -   <i>fxn1 ---> glc-hello-function</i><br>        
-Lambda Proxy Example: <br><br>POST/apigw.f5demo.net/<b>fxn1</b>  -- proxies directly to the Lambda function with the name <b>glc-hello-function</b>
-
-<b><font color="red">This extension is community supported.<font color="red"></b>
-
 ## Requirements
 
 BIG-IP VE 13.1 or later running on EC2
