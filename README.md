@@ -9,9 +9,9 @@ The f5_aws_apigw_proxy iRules LX plug-in is a BIG-IP iRules LX plugin for enable
 ### Lambda Proxy
 To proxy a Lambda function located within the same region as the F5 BIG-IP instance, create a datagroup, (<i>'aws-apis'</i>)to create path --> LambdFunctionName matchings -   <i>fxn1 ---> glc-hello-function</i><br>path --> LambdFunctionName matchings<br><br>To proxy a Lambda function located in a different AWS region simplye prepend the region to the request <i>fxn1 ---> glc-hello-function</i><br>path --> region/LambdFunctionName   
 
-<b><i>Lambda Proxy Example1:</b></i><br>POST/apigw.f5demo.net/<b>fxn1</b>  -- proxies directly to the Lambda function with the region/name <b>us-east-1/glc-hello-function</b>
+<b><i>Lambda Proxy Example1:</b></i><br>POST/apigw.f5demo.net/<b>fxn1</b>  -- proxies directly to the Lambda function with the name <b>glc-hello-function</b>
 
-<b><i>Lambda Proxy outsid of region Example2:</b></i><br>POST/apigw.f5demo.net/<b>fxn1</b>  -- proxies directly to the Lambda function with the region/name <b>eu-west-2/glc-hello-function</b>
+<b><i>Lambda Proxy outsid of region Example2:</b></i><br>POST/apigw.f5demo.net/<b>fxn2</b>  -- proxies directly to the Lambda function with the region/name <b>eu-west-2/glc-hello-function</b>
 
 
 ### AWS API Proxy
