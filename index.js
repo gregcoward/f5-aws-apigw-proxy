@@ -10,7 +10,31 @@ ilx.addMethod('apigw_proxy_call', function(req, res){
     var body = JSON.parse(req.params()[1]);  //'{"here": "I am"}';//
     var apiUri = req.params()[0];  //'glc-hello-sns'; //
     var mthd = req.params()[2];  //'POST'; //
-    console.log('starting nodejs');
+
+    //Capture region from URI if provided, else use default of 'us-east-1'
+    var defRegion = "us-east-1";
+    var awsRegions = ["us-east-1","us-east-2","us-west-1","us-west-2","ca-central-1","eu-west-1","eu-central-1","eu-west-2","eu-west-3","ap-northeast-1","ap-northeast-2","ap-southeast-1","ap-southeast-2","ap-south-1","sa-east-1","us-gov-west-1"];
+    var i = 0;
+    var lambdaRegion = 'no';
+
+    while ( i < awsRegions.length ) {
+        if (apiUri.includes(awsRegions[i])) {
+            defRegion = awsRegions[i];
+            lambdaRegion = 'yes';
+        }
+        i++;
+    }
+    //
+
+    // Determine Lambda region - default to us-east-1 if no region entered
+    if (lambdaRegion == 'yes') {
+        var regIndex = apiUri.indexOf(defRegion);
+        var fxIndex = apiUri.indexOf("/", regIndex);
+        lambdaName = apiUri.substring(fxIndex + 1);
+    } else {
+        lambdaName = apiUri;
+    }
+
     const http_opts = {
         host: '169.254.169.254',
         path: '/latest/meta-data/iam/security-credentials/f5ApiProxyRole',
@@ -35,7 +59,7 @@ ilx.addMethod('apigw_proxy_call', function(req, res){
             var accessKeyId = retJson.AccessKeyId;
             var secretAccessKey = retJson.SecretAccessKey;
             var sessionToken = retJson.Token;
-            var defRegion = "us-east-1";
+            console.log(defRegion);
             AWS.config.update({ accessKeyId: accessKeyId, secretAccessKey: secretAccessKey, sessionToken: sessionToken, region: defRegion });
 
             // Determine whether API or lambda function call based on URI presented
@@ -63,7 +87,7 @@ ilx.addMethod('apigw_proxy_call', function(req, res){
                   accessKey: accessKeyId, // REQUIRED
                   secretKey: secretAccessKey, // REQUIRED
                   sessionToken: sessionToken, //REQUIRED
-                  region: apiRegion, // REQUIRED: The region where the API is deployed.
+                  region: defRegion, // REQUIRED: The region where the API is deployed.
               });
 
               //Invoke API using apigClientFactory and role temporary creds
@@ -71,27 +95,28 @@ ilx.addMethod('apigw_proxy_call', function(req, res){
                   .then(function (result) {
                     res.reply(JSON.stringify(result.data));
                   }).catch(function (result) {
-                      return "fail";
+                      return "failed";
                   });
+
             } else {
 
               // Defaulting to Lambda function Call
               lambdaBody = JSON.stringify(body);
               var lambda = new AWS.Lambda();
               var params = {
-                  FunctionName: apiUri,   // required
+                  FunctionName: lambdaName,   // required
                   Payload: lambdaBody
                 };
 
                 lambda.invoke(params, function (err, data) {
-                  if (err) res.reply(data.FunctionError);
+                  if (err) res.reply("failed");
                   else     res.reply(data.Payload);
                 });
               }
         });
         response.on('error', (err) => {
             console.log("Error on index.js", err);
-            res.reply("fail");
+            res.reply("failed");
         });
     };
     http.request(http_opts, callback).end();
