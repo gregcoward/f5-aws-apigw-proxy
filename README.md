@@ -13,7 +13,7 @@ To proxy a Lambda function located within the same region as the F5 BIG-IP insta
 
 <b><i>Lambda Proxy Example1:</b></i><br>POST/apigw.f5demo.net/<b>fxn1</b>  -- proxies directly to the Lambda function with the name <b>glc-hello-function</b>
 
-<b><i>Lambda Proxy outsid of region Example2:</b></i><br>POST/apigw.f5demo.net/<b>fxn2</b>  -- proxies directly to the Lambda function with the region/name <b>eu-west-2/glc-hello-function</b>
+<b><i>Lambda Proxy outside of region Example2:</b></i><br>POST/apigw.f5demo.net/<b>fxn2</b>  -- proxies directly to the Lambda function with the region/name <b>eu-west-2/glc-hello-function</b>
 
 
 ### AWS API Proxy
